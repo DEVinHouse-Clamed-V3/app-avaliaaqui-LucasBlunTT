@@ -8,8 +8,16 @@ const Tab = createBottomTabNavigator();
 export default function Tabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Produtos" component={ListPtoduct} />
-      <Tab.Screen name="Avaliacao" component={Avliation} />
+      <Tab.Screen
+        name="Produtos"
+        component={ListPtoduct}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Avaliacao"
+        component={Avliation}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 }
