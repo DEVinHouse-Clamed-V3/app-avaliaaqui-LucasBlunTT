@@ -23,7 +23,7 @@ export default function Product({
       <Image source={{ uri: image }} style={styles.productImage} />
       <View style={styles.infoContainer}>
         <Text style={styles.productName}>{name}</Text>
-        <Text style={styles.productPrice}>${price}</Text>
+        <Text style={styles.productPrice}>{price}</Text>
         <Text style={styles.productBrand}>{brand}</Text>
         <Text style={styles.productDescription}>{description}</Text>
       </View>
@@ -48,6 +48,8 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     marginBottom: 10,
+    resizeMode: 'cover',
+    overflow: 'hidden',
   },
   infoContainer: {
     paddingVertical: 5,
