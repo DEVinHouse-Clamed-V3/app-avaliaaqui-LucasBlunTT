@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   productImage: {
     width: '100%',
-    height: 150,
+    height: 300,
     borderRadius: 10,
     marginBottom: 10,
     resizeMode: 'cover',
