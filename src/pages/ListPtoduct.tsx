@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
 import axios from 'axios';
+import Product from '../components/Product';
 
 interface Product {
   id: number;
@@ -12,7 +13,7 @@ interface Product {
 }
 
 export default function ListProduct() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[] | null>([]);
 
   async function getProducts() {
     try {
@@ -37,13 +38,14 @@ export default function ListProduct() {
           data={products}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <View style={styles.productContainer}>
-              <Image source={{ uri: item.image }} style={styles.productImage} />
-              <Text style={styles.productName}>{item.name}</Text>
-              <Text style={styles.productPrice}>${item.price}</Text>
-              <Text style={styles.productBrand}>{item.brand}</Text>
-              <Text style={styles.productDescription}>{item.description}</Text>
-            </View>
+            <Product
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              brand={item.brand}
+              description={item.description}
+              image={item.image}
+            />
           )}
         />
       </View>
