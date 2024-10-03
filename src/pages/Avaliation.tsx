@@ -2,14 +2,22 @@ import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { useRoute } from '@react-navigation/native';
 
+interface RouteParams {
+  id?: number; // ID opcional
+}
+
 export default function Avaliation() {
   const route = useRoute();
-  const { id } = route.params as { id: number }; // Ajuste o tipo conforme necessário
+  const params = route.params as RouteParams; // Faça o cast para RouteParams
+  const id = params?.id; // Use optional chaining para evitar o erro
 
   return (
     <View style={styles.container}>
-      <Text>Avaliando o produto com ID: {id}</Text>
-      {/* Aqui você pode implementar a lógica de avaliação */}
+      {id ? (
+        <Text>Avaliando o produto com ID: {id}</Text>
+      ) : (
+        <Text>Selecione um produto para avaliar</Text>
+      )}
     </View>
   );
 }

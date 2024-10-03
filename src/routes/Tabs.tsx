@@ -13,7 +13,7 @@ export default function Tabs() {
       screenOptions={() => ({
         headerShown: false,
         tabBarActiveTintColor: '#121212',
-        tabBarInactiveTintColor: 'white',
+        tabBarInactiveTintColor: '#3c3c3c',
         tabBarStyle: {
           backgroundColor: '#E2B616',
           borderTopWidth: 0,
