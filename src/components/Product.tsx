@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
+import { propsTab } from '../routes/models/types';
 
 interface ProductProps {
   id: number;
@@ -18,6 +20,7 @@ export default function Product({
   description,
   image,
 }: ProductProps) {
+  const navigation = useNavigation<propsTab>(); // Obtém o objeto navigation
   return (
     <View style={styles.productContainer} key={id}>
       <Image source={{ uri: image }} style={styles.productImage} />
@@ -28,6 +31,7 @@ export default function Product({
         <Text style={styles.productDescription}>{description}</Text>
       </View>
       <TouchableOpacity
+        onPress={() => navigation.navigate('Avaliacao', { id: id.toString() })} // Navega para a tela de avaliação
         activeOpacity={0.7}
         style={{ backgroundColor: '#FFD700', padding: 10, borderRadius: 5 }}
       >

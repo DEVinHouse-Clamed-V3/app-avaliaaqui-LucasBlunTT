@@ -3,13 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons'; // Usando MaterialIcons do Expo
 import ListProduct from '../pages/ListPtoduct';
 import Avaliation from '../pages/Avaliation';
+import { propsNavigationTab } from './models/types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<propsNavigationTab>();
 
 export default function Tabs() {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         headerShown: false,
         tabBarActiveTintColor: '#121212',
         tabBarInactiveTintColor: 'white',
