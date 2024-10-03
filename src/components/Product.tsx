@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 interface ProductProps {
@@ -27,6 +27,11 @@ export default function Product({
         <Text style={styles.productBrand}>{brand}</Text>
         <Text style={styles.productDescription}>{description}</Text>
       </View>
+      <TouchableOpacity
+        style={{ backgroundColor: '#FFD700', padding: 10, borderRadius: 5 }}
+      >
+        <Text style={{ color: '#000', textAlign: 'center' }}>Avaliar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
