@@ -28,6 +28,7 @@ export default function Product({
         <Text style={styles.productDescription}>{description}</Text>
       </View>
       <TouchableOpacity
+        activeOpacity={0.7}
         style={{ backgroundColor: '#FFD700', padding: 10, borderRadius: 5 }}
       >
         <Text style={{ color: '#000', textAlign: 'center' }}>Avaliar</Text>
