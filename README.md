@@ -27,6 +27,6 @@ Este projeto é um aplicativo de avaliação de produtos, desenvolvido em **Reac
 
 1. **Clone o Repositório**: 
    ```bash
-   git clone https://github.com/seu-usuario/feedback-app.git
+   git clone https://github.com/seu-usuario/feedback-app.git](https://github.com/DEVinHouse-Clamed-V3/app-avaliaaqui-LucasBlunTT.git
    cd feedback-app
    npm install
