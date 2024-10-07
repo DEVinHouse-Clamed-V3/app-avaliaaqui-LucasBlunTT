@@ -19,7 +19,7 @@ interface AuthProviderProps {
 
 // Cria o Provider
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true); // Estado de login
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Estado de login
 
   const login = () => setIsLoggedIn(true);
   const logout = () => setIsLoggedIn(false);

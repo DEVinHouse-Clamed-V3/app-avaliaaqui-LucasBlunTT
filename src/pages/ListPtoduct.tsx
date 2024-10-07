@@ -17,7 +17,7 @@ export default function ListProduct() {
 
   async function getProducts() {
     try {
-      const response = await axios.get('http://192.168.15.4:3000/products');
+      const response = await axios.get('http://192.168.15.7:3000/products');
       setProducts(response.data);
     } catch (error) {
       console.error('Erro ao buscar produtos: ', error);
