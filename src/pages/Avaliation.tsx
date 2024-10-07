@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import axios from 'axios';
 import { useRoute } from '@react-navigation/native';
@@ -25,6 +26,7 @@ export default function Avaliation() {
   const [feedback, setFeedback] = useState('');
   const [experience, setExperience] = useState('');
   const [recommend, setRecommend] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const validateAndSubmit = async () => {
     if (!name || !email || !feedback || !experience) {
@@ -42,6 +44,7 @@ export default function Avaliation() {
     };
 
     try {
+      setLoading(true);
       const response = await axios.post(
         'http://192.168.15.7:3000/evaluations',
         data,
@@ -50,6 +53,8 @@ export default function Avaliation() {
       clearFields();
     } catch (error) {
       Alert.alert('Erro', 'Ocorreu um erro ao enviar o feedback.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -154,7 +159,11 @@ export default function Avaliation() {
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.submitButton} onPress={validateAndSubmit}>
-        <Text style={styles.submitButtonText}>Enviar Feedback</Text>
+        {loading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={styles.submitButtonText}>Enviar Feedback</Text>
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -232,6 +241,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#FFD700', // Botão amarelo dourado
     alignItems: 'center',
+    justifyContent: 'center',
   },
   submitButtonText: {
     fontSize: 16,
