@@ -46,7 +46,7 @@ export default function Avaliation() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'http://192.168.15.7:3000/evaluations',
+        'http://localhost:3000/evaluations',
         data,
       );
       Alert.alert('Sucesso', 'Feedback enviado com sucesso!');
